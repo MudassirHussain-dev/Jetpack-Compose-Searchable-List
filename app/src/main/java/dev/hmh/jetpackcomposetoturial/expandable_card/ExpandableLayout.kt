@@ -4,10 +4,8 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -16,21 +14,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import dev.hmh.jetpackcomposetoturial.R
 
 
 @ExperimentalMaterialApi
 @Composable
 fun ExpandableCard(
-    title: String,
+    title: String? = "My Title",
     titleFontSize: TextUnit = MaterialTheme.typography.h6.fontSize,
     titleFontWeight: FontWeight = FontWeight.Bold,
-    description: String,
+    description: String? = "my description",
     descriptionFontSize: TextUnit = MaterialTheme.typography.subtitle1.fontSize,
     descriptionFontWeight: FontWeight = FontWeight.Normal,
     descriptionMaxLines: Int = 4,
@@ -51,7 +51,7 @@ fun ExpandableCard(
                     easing = LinearOutSlowInEasing
                 )
             ),
-       // shape = shape,
+        // shape = shape,
         onClick = {
             expandedState = !expandedState
         }
@@ -67,7 +67,7 @@ fun ExpandableCard(
                 Text(
                     modifier = Modifier
                         .weight(6f),
-                    text = title,
+                    text = title!!,
                     fontSize = titleFontSize,
                     fontWeight = titleFontWeight,
                     maxLines = 1,
@@ -88,14 +88,34 @@ fun ExpandableCard(
                 }
             }
             if (expandedState) {
-                Text(
-                    text = description,
+                ExpandCarding()
+                /*Text(
+                    text = description!!,
                     fontSize = descriptionFontSize,
                     fontWeight = descriptionFontWeight,
                     maxLines = descriptionMaxLines,
                     overflow = TextOverflow.Ellipsis
-                )
+                )*/
             }
+        }
+    }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun ExpandCarding() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(15.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Image(painter = painterResource(id = R.drawable.aa), contentDescription = "aa")
+            Text(text = "Abc")
         }
     }
 }

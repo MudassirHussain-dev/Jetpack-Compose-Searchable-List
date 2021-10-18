@@ -19,10 +19,7 @@ class MainActivity : ComponentActivity() {
 
                 //SearchAbleList()
                 //SwipeToReveal()
-                ExpandableCard(
-                    "mytitle",
-                    description = "abcdljfldksajflkasdjlfkj"
-                )
+                ExpandableCard()
             }
         }
     }
