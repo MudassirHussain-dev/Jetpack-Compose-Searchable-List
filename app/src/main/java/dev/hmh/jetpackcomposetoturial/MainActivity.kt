@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.ExperimentalMaterialApi
 import dev.hmh.jetpackcomposetoturial.constraint_layout.ConstraintLayout
 import dev.hmh.jetpackcomposetoturial.expandable_card.ExpandableCard
@@ -12,6 +13,7 @@ import dev.hmh.jetpackcomposetoturial.scroll_recyclerview.ScrollListTopToBottom
 import dev.hmh.jetpackcomposetoturial.search_widget.SearchWidget
 import dev.hmh.jetpackcomposetoturial.search_widget.SearchWidgetViewModel
 import dev.hmh.jetpackcomposetoturial.searchable.SearchAbleList
+import dev.hmh.jetpackcomposetoturial.shemmer_effect.AnimatedShimmer
 import dev.hmh.jetpackcomposetoturial.ui.theme.JetpackComposeToturialTheme
 
 @ExperimentalAnimationApi
@@ -28,7 +30,16 @@ class MainActivity : ComponentActivity() {
                 //ExpandableCard()
                 //SearchWidget(viewModel =viewModel)
                 //ScrollListTopToBottom()
-                ConstraintLayout()
+                //ConstraintLayout()
+
+
+
+                    Column {
+                        repeat(10) {
+                            AnimatedShimmer()
+                        }
+                    }
+
             }
         }
     }
